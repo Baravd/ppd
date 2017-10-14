@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -14,16 +13,19 @@ public class Matrice {
         this.nrColoane = nrColoane;
         matrice = new int[nrLinii][nrColoane];
     }
-    public int get(int i,int j) {
+
+    public int get(int i, int j) {
         return matrice[i][j];
     }
+
     public void set(int i, int j, int val) {
         matrice[i][j] = val;
     }
+
     public void populateRandom() {
         Random random = new Random();
-        for(int i=0;i<nrLinii;i++) {
-            for(int j = 0;j<nrColoane;j++) {
+        for (int i = 0; i < nrLinii; i++) {
+            for (int j = 0; j < nrColoane; j++) {
                 matrice[i][j] = random.nextInt(10);
             }
         }
@@ -32,13 +34,13 @@ public class Matrice {
 
     @Override
     public String toString() {
-        String s ="";
-        for(int i=0;i<nrLinii;i++){
-            for (int j=0;j<nrColoane;j++) {
-                s+=matrice[i][j];
-                s+=' ';
+        String s = "";
+        for (int i = 0; i < nrLinii; i++) {
+            for (int j = 0; j < nrColoane; j++) {
+                s += matrice[i][j];
+                s += ' ';
             }
-            s+='\n';
+            s += '\n';
         }
         return s;
     }
@@ -50,13 +52,16 @@ public class Matrice {
     public int getNrColoane() {
         return nrColoane;
     }
-    public void multiply(Matrice m1, Matrice m2, Matrice rezultat) {
-        int val =0;
-        for(int i=0;i<m1.getNrLinii();i++) {
-            for (int j=0;j<m2.getNrColoane();j++) {
-                for(int l=0;l<m1.getNrColoane();l++)
-                    val= m1.get(i,l) +m2.get(l,j);
-                rezultat.set(i,j,val);
+
+    public void multiply(Pereche linii, Matrice m1, Matrice m2, Matrice rezultat) {
+        int val = 0;
+        for (int i = linii.i; i < linii.j; i++) {
+            for (int j = 0; j < m2.getNrColoane(); j++) {
+                for (int l = 0; l < m1.getNrColoane(); l++) {
+                    int aux = rezultat.get(i, j);
+                    val += m1.get(i, l) * m2.get(l, j);
+                    rezultat.set(i, j, aux + val);
+                }
             }
         }
 

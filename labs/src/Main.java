@@ -7,8 +7,8 @@ import java.util.Scanner;
  */
 public class Main {
     public static void main(String[] args) {
-        int n;
-        int w;
+        int n=1000;
+        int w=5;
         int rest;
         int cat;
         List<Pereche> intervale = new ArrayList<>();
@@ -22,41 +22,51 @@ public class Main {
         w = scanner.nextInt();
 
         rest = n % w;
-        int stanga = 1;
-        int dreapta = stanga + w + 1;
-        rest = rest - 1;
+        cat = n /w;
+        int stanga = 0;
+        int dreapta = stanga + cat - 1;
         System.out.println("Rest:"+rest);
+        rest = rest - 1;
         for (int i = 0; i < w; i++) {
             if(rest>0) {
                 intervale.add(new Pereche(stanga, dreapta));
                 stanga = dreapta + 1;
-                dreapta = stanga + w + 1;
+                dreapta = stanga + cat ;
                 rest = rest - 1;
             }
             else {
                 intervale.add(new Pereche(stanga, dreapta));
                 stanga = dreapta+1;
-                dreapta = stanga + w ;
+                dreapta = stanga + cat -1 ;
 
             }
 
         }
         System.out.println(intervale);
 
-        int M = 2;
-        int N = 2;
-        int K=3;
+        int M = 10000;
+        int N = 10000;
+        int K=5;
         Matrice matrice1 = new Matrice(M,K);
         matrice1.populateRandom();
         Matrice matrice2 = new Matrice(K,N);
+
+        Matrice rezultat = new Matrice(M, N);
         matrice2.populateRandom();
-        System.out.println(matrice1);
-        System.out.println(matrice2);
+        //System.out.println(matrice1);
+        //System.out.println(matrice2);
 
-        Matrice rezultat = new Matrice(M,N);
 
-        rezultat.multiply(matrice1,matrice2,rezultat);
-        System.out.println(rezultat);
+        long start = System.currentTimeMillis();
+
+        //rezultat.multiply(new Pereche(0,M-1),matrice1,matrice2,rezultat);
+        for (int i=0;i<w;i++) {
+            Runnable thread = new MyThread(intervale.get(i), matrice1, matrice2, rezultat);
+            thread.run();
+        }
+        long stop =  System.currentTimeMillis();
+        long diff = stop-start;
+        System.out.println("time start:"+start+" end:"+stop+" diff(mili second)="+diff);
 
 
     }
