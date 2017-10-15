@@ -46,7 +46,7 @@ public class Main {
 
         int M = 10000;
         int N = 10000;
-        int K=5;
+        int K=w;
         Matrice matrice1 = new Matrice(M,K);
         matrice1.populateRandom();
         Matrice matrice2 = new Matrice(K,N);
@@ -60,10 +60,22 @@ public class Main {
         long start = System.currentTimeMillis();
 
         //rezultat.multiply(new Pereche(0,M-1),matrice1,matrice2,rezultat);
+        List<Thread> threads = new ArrayList<>();
         for (int i=0;i<w;i++) {
             Runnable thread = new MyThread(intervale.get(i), matrice1, matrice2, rezultat);
-            thread.run();
+            Thread thread1 = new Thread(thread);
+            thread1.setPriority(10);
+            threads.add(thread1);
+
         }
+        threads.stream().forEach(thread -> thread.start());
+        threads.stream().forEach(thread -> {
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
         long stop =  System.currentTimeMillis();
         long diff = stop-start;
         System.out.println("time start:"+start+" end:"+stop+" diff(mili second)="+diff);
