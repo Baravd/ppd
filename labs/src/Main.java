@@ -17,7 +17,7 @@ public class Main {
         System.out.println("Nr sarcini");
 
 
-        n = scanner.nextInt();
+        //n = scanner.nextInt();
         System.out.println("Wokers");
         w = scanner.nextInt();
 
@@ -44,9 +44,9 @@ public class Main {
         }
         System.out.println(intervale);
 
-        int M = 10000;
-        int N = 10000;
-        int K=w;
+        int M = 1000;
+        int N = 1000;
+        int K=1000;
         Matrice matrice1 = new Matrice(M,K);
         matrice1.populateRandom();
         Matrice matrice2 = new Matrice(K,N);
