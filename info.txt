@@ -1,1 +1,2 @@
 amarinescu@cs.ubbcluj.ro
+lab1 --- probl1

@@ -7,7 +7,7 @@ import java.util.Scanner;
  */
 public class Main {
     public static void main(String[] args) {
-        int n=10000;
+        int n=1000;
         int w;
         int rest;
         int cat;
@@ -44,9 +44,9 @@ public class Main {
         }
         System.out.println(intervale);
 
-        int M = 10000;
-        int N = 10000;
-        int K=10000;
+        int M = 1000;
+        int N = 1000;
+        int K=1000;
         Matrice matrice1 = new Matrice(M,K);
         matrice1.populateRandom();
         Matrice matrice2 = new Matrice(K,N);
