@@ -15,25 +15,29 @@ public class Bill implements Runnable {
 
     @Override
     public void run() {
+        int nr=10;
         Random random = new Random();
         //mutex lock
 
 
         try {
-            Thread.sleep(1000);
-            System.out.println("SLEEP");
+            while(nr>0) {
+                nr--;
+                Thread.sleep(1000);
+                System.out.println("SLEEP");
 
-            List<BaseProduct> products = magazin.getProducts();
+                List<BaseProduct> products = magazin.getProducts();
 
-            for (int i = 0; i < products.size(); i++) {
+                for (int i = 0; i < products.size(); i++) {
 
-                synchronized (magazin) {
-                    List<BaseProduct> registru = magazin.getRegistru();
-                    int anInt = random.nextInt(9) + 1;
-                    System.out.println("Thread ID=" + threadID+ "scadem="+anInt);
-                    if (products.get(i).getQuantity() > anInt) {
-                        products.get(i).setQuantity(products.get(i).getQuantity() - anInt);
-                        registru.get(i).setQuantity(registru.get(i).getQuantity() + anInt);
+                    synchronized (magazin) {
+                        List<BaseProduct> registru = magazin.getRegistru();
+                        int anInt = random.nextInt(9) + 1;
+                        System.out.println("Thread ID=" + threadID + "scadem=" + anInt);
+                        if (products.get(i).getQuantity() > anInt) {
+                            products.get(i).setQuantity(products.get(i).getQuantity() - anInt);
+                            registru.get(i).setQuantity(registru.get(i).getQuantity() + anInt);
+                        }
                     }
                 }
             }

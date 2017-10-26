@@ -1,0 +1,6 @@
+C:\Faculta\PPD\ppd\labs\lab3_c#\ConsoleApp1\ConsoleApp1\bin\Release\ConsoleApp1.exe.config
+C:\Faculta\PPD\ppd\labs\lab3_c#\ConsoleApp1\ConsoleApp1\bin\Release\ConsoleApp1.exe
+C:\Faculta\PPD\ppd\labs\lab3_c#\ConsoleApp1\ConsoleApp1\bin\Release\ConsoleApp1.pdb
+C:\Faculta\PPD\ppd\labs\lab3_c#\ConsoleApp1\ConsoleApp1\obj\Release\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\Faculta\PPD\ppd\labs\lab3_c#\ConsoleApp1\ConsoleApp1\obj\Release\ConsoleApp1.exe
+C:\Faculta\PPD\ppd\labs\lab3_c#\ConsoleApp1\ConsoleApp1\obj\Release\ConsoleApp1.pdb

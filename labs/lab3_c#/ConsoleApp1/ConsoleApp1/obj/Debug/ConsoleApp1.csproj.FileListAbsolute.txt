@@ -1,0 +1,7 @@
+C:\Faculta\PPD\ppd\labs\lab3_c#\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+C:\Faculta\PPD\ppd\labs\lab3_c#\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+C:\Faculta\PPD\ppd\labs\lab3_c#\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+C:\Faculta\PPD\ppd\labs\lab3_c#\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csprojResolveAssemblyReference.cache
+C:\Faculta\PPD\ppd\labs\lab3_c#\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\Faculta\PPD\ppd\labs\lab3_c#\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+C:\Faculta\PPD\ppd\labs\lab3_c#\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.pdb

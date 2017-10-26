@@ -23,6 +23,8 @@ public class Main {
         for (Thread t : threads) {
             t.join();
         }
+        Thread.sleep(1500);
+        checker.setStopCondition(true);
         thread1.join();
         System.out.println(magazin);
 
