@@ -1,0 +1,25 @@
+Matrix Addition:
+
+a[m, n] + b[m, n] = c[m, n]
+
+Please note the sizes are the same (m rows and n columns).
+
+for i=0;i<m;i++
+	for j=0;j<n;j++
+		c[i, j] = a[i, j] + b[i, j]
+		
+Complexity: O(n^2)
+		
+Matrix Multiplication:
+
+a[m, k] * b[k, n] = c[m, n]
+
+Please note the relations between the dimensions of the matrices!
+
+for i=0;i<m;i++
+	for j=0;j<n;j++
+		c[i, j] = 0
+		for l=0;l<k;l++
+			c[i, j] += a[i, l] * b[l, j]
+
+Complexity: O(n^3)

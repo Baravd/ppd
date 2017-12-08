@@ -67,6 +67,8 @@ namespace ConsoleApp1
             List<Thread> threads = new List<Thread>();
             ParameterizedThreadStart start = new ParameterizedThreadStart(Calcul);
             List<Task> tasks = new List<Task>();
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
 
             for (int i = 0; i < w; i++)
             {
@@ -77,18 +79,22 @@ namespace ConsoleApp1
 
             }
             Task.WaitAll(tasks.ToArray());
+            sw.Stop();
+            long microseconds1 = sw.ElapsedMilliseconds;
+            WriteLine(microseconds1);
 
-           /* foreach (var t in threads)
-            {
-                //t.Join();
-            }*/
 
-            for (int i = 0; i < w; i++)
-            {
-                rezultat.multiply(intervale[i], matrice1, matrice2, rezultat);
-            }
+            /* foreach (var t in threads)
+             {
+                 //t.Join();
+             }*/
+            /*
+                        for (int i = 0; i < w; i++)
+                        {
+                            rezultat.multiply(intervale[i], matrice1, matrice2, rezultat);
+                        }
 
-            WriteLine(rezultat.toString());
+                        WriteLine(rezultat.toString());*/
             ReadKey();
         }
 

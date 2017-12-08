@@ -1,3 +1,4 @@
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -12,8 +13,8 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException {
         List<Pereche> intervale = new ArrayList<>();
-        int n = 100;
-        int w = 10;
+        int n = 1000;
+        int w = 4;
         int rest;
         int cat;
         rest = n % w;
@@ -37,9 +38,9 @@ public class Main {
 
         }
 
-        int M = 100;
-        int N = 100;
-        int K = 100;
+        int M = 1000;
+        int N = 1000;
+        int K = 1000;
 
 
         Matrice matrice1 = new Matrice(M, K);
@@ -51,6 +52,7 @@ public class Main {
 
         ExecutorService executorService = Executors.newFixedThreadPool(N_THREADS);
         List<Future<Matrice>> futureList = new ArrayList<>();
+        Instant start = Instant.now();
         for (int i = 0; i < w; i++) {
             Callable<Matrice> worker = new MyThread(intervale.get(i), matrice1, matrice2, rezultat);
             Future<Matrice> future = executorService.submit(worker);
@@ -61,9 +63,11 @@ public class Main {
         for (Future<Matrice> future : futureList) {
             try {
                 Matrice matrice = future.get();
-                System.out.println(matrice);
+                //System.out.println(matrice);
             } catch (ExecutionException e) {
             }
         }
+        Instant stop = Instant.now();
+        System.out.println(stop.minusMillis(start.toEpochMilli()).toEpochMilli());
     }
 }
